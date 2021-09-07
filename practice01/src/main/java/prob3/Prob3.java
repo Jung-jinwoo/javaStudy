@@ -11,16 +11,16 @@ public class Prob3 {
 		int sum=0;
 		
 		System.out.print("숫자를 입력하세요: ");
-		int n = scanner.nextInt();
+		int num = scanner.nextInt();
 		
-		if(n%2 == 1) {
-			for(int i=0; i<=n; i++) {
+		if(num%2 == 1) {
+			for(int i=0; i<=num; i++) {
 				if(i%2 == 1) {
 					sum += i;
 				}else {continue;}
 			}
 		}else {
-			for(int i=0; i<=n; i++) {
+			for(int i=0; i<=num; i++) {
 				if(i%2 == 0) {
 					sum += i;
 				}else {continue;}
