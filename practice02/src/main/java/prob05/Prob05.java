@@ -19,6 +19,7 @@ public class Prob05 {
 			int correctNumber = random.nextInt( 100 ) + 1;
 			System.out.println(correctNumber);
 
+			System.out.println();
 			
 			//새 게임 여부 확인하기
 			System.out.print( "다시 하겠습니까(y/n)>>" );
