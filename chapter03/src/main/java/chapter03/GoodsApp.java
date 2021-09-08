@@ -5,11 +5,21 @@ public class GoodsApp extends Goods{
 	public static void main(String[] args) {
 		Goods goods = new Goods();
 		goods.setName("Nikon");
-		goods.setPrice(10000);
+		goods.setPrice(2000);
 		goods.setCountStock(7);
 		goods.setCountSold(3);
 		goods.showInfo();
 		
+		goods.setPrice(-1);
+		int discountPrice = goods.calcDiscountPrice(50);
+		System.out.println(discountPrice);
+		
+		System.out.println(Goods.countOfGoods);
+		
+		Goods goods2 = new Goods();
+		Goods goods3 = new Goods();
+		
+		System.out.println(Goods.countOfGoods);
 	}
 
 }
