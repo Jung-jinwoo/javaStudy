@@ -11,12 +11,11 @@ public class Prob4 {
 		String text = scanner.nextLine();
 	
 		String []str = text.split("");
-		
 		for(int i=1;i<=str.length;i++) {
 			for(int j=0; j<i; j++) {
 				System.out.print(str[j]);
 			}
-			System.out.println();
+				System.out.println();
 		}
 		
 		scanner.close();
