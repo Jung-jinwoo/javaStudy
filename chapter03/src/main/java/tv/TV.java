@@ -5,6 +5,7 @@ public class TV {
 	private int channel; // 1~255
 	private int volume; // 0~100
 	private boolean power;
+
 	public TV(int channel, int volume, boolean power) {
 		this.channel = channel;
 		this.volume = volume;
@@ -31,7 +32,7 @@ public class TV {
 	}
 	
 	public void channel(boolean up) {
-		if(up == true && -1<channel && channel<255) {
+		if(up && -1<channel && channel<255) {
 			this.channel++;
 			System.out.println("현재 채널은" + channel + "입니다.");
 		}else {
@@ -49,7 +50,7 @@ public class TV {
 	}
 	
 	public void volume(boolean up) {
-		if(up == true && -1<volume && volume < 100) {
+		if(up && -1<volume && volume < 100) {
 			this.volume++;
 			System.out.println("볼륨이 증가하였습니다.");
 		}else {
