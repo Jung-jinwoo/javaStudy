@@ -22,36 +22,12 @@ public class EchoServer {
 			serverSocket.bind(new InetSocketAddress("0.0.0.0", PORT));
 			log("starts... [port:" + PORT + "]");
 
-			Socket socket = serverSocket.accept();
-			
-			InetSocketAddress inetRemoteSocketAddress = (InetSocketAddress)socket.getRemoteSocketAddress();
-			String remoteHostAddress = inetRemoteSocketAddress.getAddress().getHostAddress();
-			int remoteHostPort = inetRemoteSocketAddress.getPort();
-			log("connected by client[" + remoteHostAddress + ":" + remoteHostPort + "]");
-
-			try {
-				BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream(), "utf-8"));
-				PrintWriter pw = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(), "utf-8"), true);
-
-				while (true) {
-					String data = br.readLine();
-					if (data == null) {
-						log("closed by client");
-						break;
-					}
-					
-					log("received: " + data);
-					pw.println(data);
-				}
-			} catch (IOException e) {
-				log("error: " + e);
-			} finally {
-				if (socket != null && socket.isClosed() == false) {
-					socket.close();
-				}
+			while(true) {
+				Socket socket = serverSocket.accept();
+				new EchoServerReceiveThread(socket).start();
 			}
-		} catch (SocketException e) {
-			log("suddenly closed by server" + e);
+			
+			
 		} catch (IOException e) {
 			log("error: " + e);
 		} finally {
